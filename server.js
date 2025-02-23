@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
 });
 
 // Test Api
-app.get("/api", async (req, res) => {
+app.get("/", async (req, res) => {
   res.json({ message: "Welcome to the API" });
 });
 
@@ -38,5 +38,5 @@ app.use("/api/barber", barberRoutes);
 
 swaggerSetup(app);
 
-// Export the app for Vercel
-module.exports = app;
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
