@@ -6,7 +6,6 @@ const swaggerSetup = require("./utils/swagger");
 
 // Routes Import
 const authRoutes = require("./routes/authRoutes");
-const businessRoutes = require("./routes/businessRoutes");
 const reservationRoutes = require("./routes/reservationRoutes");
 const barberRoutes = require("./routes/barberRoutes");
 
@@ -35,7 +34,6 @@ app.get("/api", async (req, res) => {
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/reservation", reservationRoutes);
-app.use("/api/business", businessRoutes);
 app.use("/api/barber", barberRoutes);
 
 swaggerSetup(app);
