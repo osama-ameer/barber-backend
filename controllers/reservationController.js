@@ -64,18 +64,11 @@ const updateReservation = async (req, res) => {
       return res.status(404).json({ message: "Reservation not found" });
     }
 
-    const updateDataString = Object.entries(updateData)
-      .map(
-        ([key, value]) =>
-          `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`
-      )
-      .join(", ");
-
     // Send email
     await sendEmail({
       email: updateData?.email,
       subject: "Reservation Updated",
-      message: `Your reservation is updated. Kindly review the changes: ${updateDataString}`,
+      message: `Your reservation is updated. Kindly review the changes: \n Your new reservation is at ${updateData?.barbershop} with ${updateData?.barber} on ${updateData?.date} at ${updateData?.time} is confirmed.`,
     });
     res.status(200).json({
       message: "Record Updated successfully!",
