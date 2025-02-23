@@ -1,2 +1,1 @@
-Node JS boiler plate
-with swagger (/docs)
+Barber App Backend
